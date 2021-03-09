@@ -126,7 +126,7 @@ public final class Demo extends Canvas {
         Mouse.update();
         PointDouble mousePt = (new PointDouble((double) Mouse.mouseX, (double) Mouse.mouseY));
 
-        double VELOCITY = 20000;
+        double VELOCITY = 6000;
         rects.get(0).vel.y = 0D;
         rects.get(0).vel.x = 0D;
 
@@ -140,13 +140,12 @@ public final class Demo extends Canvas {
             rects.get(0).vel.x = VELOCITY;
 
         if(Mouse.button1Held)
+
             rects.get(0).vel
-                    .set(
-                            rects.get(0).vel.plus(
-                                    (mousePt.minus(rects.get(0).pos)).norm()
-                                            .times(PointDouble.of(VELOCITY))
-                                            .times(PointDouble.of(elapsedTime)))
-                    );
+                    .set(rects.get(0).vel
+                                .plus((mousePt.minus(rects.get(0).pos))
+                                        .norm()
+                                        .times(PointDouble.of(VELOCITY))));
 
         rects.forEach(rect -> DrawTools.drawRect(rect, Color.WHITE.getRGB(), screenBuffer));
 
@@ -167,8 +166,7 @@ public final class Demo extends Canvas {
         z = z.stream().sorted(Comparator.comparingDouble(AbstractMap.SimpleEntry::getValue)).collect(Collectors.toList());
 
         // resolve collision in correct order
-        double et = elapsedTime;
-        z.forEach(z1 -> RectangleCollisionUtils.resolveDynamicRectVsRect(rects.get(0), et, rects.get(z1.getKey())));
+        z.forEach(z1 -> RectangleCollisionUtils.resolveDynamicRectVsRect(rects.get(0), elapsedTime, rects.get(z1.getKey())));
 
         // embellish the "in contact" rectangles in yellow
         for (int i = 0; i < 4; i++) {
