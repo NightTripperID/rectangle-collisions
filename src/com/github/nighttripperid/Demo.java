@@ -53,7 +53,7 @@ public final class Demo extends Canvas {
 
     public synchronized void start() {
         running = true;
-        thread = new Thread(mainLoop, "LittleEngine");
+        thread = new Thread(mainLoop, "RectangleDemo");
         thread.start();
     }
 
