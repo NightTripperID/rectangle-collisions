@@ -1,5 +1,5 @@
-// A java port of OLC's arbitray rectangle collision complete solution. Props to javid9x for his excellent tutorial!
-// watch https://www.youtube.com/watch?v=DPfxjQ6sqrc for reference
+// A java port of OLC's arbitrary rectangle collision complete solution. Props to javid9x for his excellent tutorial!
+// watch https://youtu.be/8JJ-4JgR7Dg for reference
 package com.github.nighttripperid;
 
 public class PointDouble {
