@@ -186,10 +186,7 @@ public final class Demo extends Canvas {
                                rects.get(0).pos.plus(rects.get(0).size.div(PointDouble.of(2D))).plus(rects.get(0).vel.norm().times(PointDouble.of(20D))),
                                Color.RED.getRGB(), screenBuffer);
         }
-
-        DrawTools.renderString8x8(20, 215, Color.WHITE.getRGB(), String.valueOf(elapsedTime), screenBuffer);
-//        DrawTools.renderString8x8(20, 215, Color.WHITE.getRGB(), String.valueOf(z.size()), screenBuffer);
-
+        DrawTools.renderString8x8(20, 215, Color.WHITE.getRGB(), String.valueOf(z.size()), screenBuffer);
 
     }
 
